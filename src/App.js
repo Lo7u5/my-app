@@ -11,8 +11,8 @@ const App = () => {
             <Header/>
             <Navbar/>
             <div className='app-wrapper-content'>
+                {/* <Profile /> */}
                 <Messages/>
-                {/*<Profile />*/}
             </div>
         </div>
     );
