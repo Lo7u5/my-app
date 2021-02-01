@@ -1,17 +1,19 @@
 nav {
     grid-area: n;
     background-color: green;
+    text-align: center;
 }
 
 .item {
     color: white;
+    padding-top: 5px;
 }
 
 .item a {
-    padding-top: 5px;
-    padding-left: 30px;
+    color: white;
+    text-decoration: none;
 }
 
-.item.active {
+.item a.active {
     font-weight: bolder;
 }
