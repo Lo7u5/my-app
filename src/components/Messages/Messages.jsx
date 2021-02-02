@@ -1,40 +1,32 @@
 import React from 'react';
 import s from './Messages.module.css';
-import { NavLink } from 'react-router-dom';
-
-const Contact = (props) => {
-    let path = "/messages/" + props.id;
-    return (
-        <div className={s.contact}>
-            <NavLink to={path} activeClassName={s.active}>
-                {props.name}
-            </NavLink>
-        </div>
-    )
-}
-
-const MessageItem = (props) => {
-    return (
-        <div className={s.messageItem}>
-            {props.message}
-        </div>
-    )
-}
+import Contact from './Contact/Contact';
+import MessageItem from './MessageItem/MessageItem';
 
 const Messages = (props) => {
+
+    let contactData = [
+        { id: 1, name: 'Sasha' },
+        { id: 2, name: 'Dasha' },
+        { id: 3, name: 'Masha' }
+    ];
+
+    let messageData = [
+        { id: 1, message: 'Hey' },
+        { id: 2, message: 'Howdy' },
+        { id: 3, message: 'Lol' }
+    ];
+
+    let contactElements = contactData.map(contact => <Contact name={contact.name} id={contact.id} />)
+    let messageElements = messageData.map(message => <MessageItem message={message.message} />)
+    
     return (
         <div className={s.dialogs}>
             <div className={s.contacts}>
-                <Contact name='Sasha' id='1' />
-                <Contact name='Dasha' id='2' />
-                <Contact name='Masha' id='3' />
-                <Contact name='Vasya' id='4' />
-                <Contact name='Andre' id='5' />
+                {contactElements}
             </div>
             <div className={s.messages}>
-                <MessageItem message='Hey' />
-                <MessageItem message='Howdy' />
-                <MessageItem message='Lol' />
+                {messageElements}
             </div>
         </div>
     )
