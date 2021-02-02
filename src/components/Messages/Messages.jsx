@@ -5,21 +5,9 @@ import MessageItem from './MessageItem/MessageItem';
 
 const Messages = (props) => {
 
-    let contactData = [
-        { id: 1, name: 'Sasha' },
-        { id: 2, name: 'Dasha' },
-        { id: 3, name: 'Masha' }
-    ];
+    let contactElements = props.messagesState.contacts.map(contact => <Contact name={contact.name} id={contact.id} key={contact.id} />)
+    let messageElements = props.messagesState.messages.map(message => <MessageItem message={message.message} key={message.id} />)
 
-    let messageData = [
-        { id: 1, message: 'Hey' },
-        { id: 2, message: 'Howdy' },
-        { id: 3, message: 'Lol' }
-    ];
-
-    let contactElements = contactData.map(contact => <Contact name={contact.name} id={contact.id} />)
-    let messageElements = messageData.map(message => <MessageItem message={message.message} />)
-    
     return (
         <div className={s.dialogs}>
             <div className={s.contacts}>

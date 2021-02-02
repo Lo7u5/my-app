@@ -4,11 +4,11 @@ import Post from './Post/Post';
 
 const MyPosts = (props) => {
 
-    let postElements = props.data.map(post => <Post message={post.message} likeCount={post.likeCount} />)
+    let postElements = props.postData.map(post => <Post message={post.message} likeCount={post.likeCount} key={post.id} />)
 
     return (
         <div className={s.postArea}>
-            <p>my posts</p>
+            <h3>my posts</h3>
             <div>
                 <textarea placeholder='New post'></textarea>
                 <div>
