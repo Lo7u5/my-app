@@ -1,20 +1,40 @@
 import React from 'react';
 import s from './Messages.module.css';
+import { NavLink } from 'react-router-dom';
+
+const Contact = (props) => {
+    let path = "/messages/" + props.id;
+    return (
+        <div className={s.contact}>
+            <NavLink to={path} activeClassName={s.active}>
+                {props.name}
+            </NavLink>
+        </div>
+    )
+}
+
+const MessageItem = (props) => {
+    return (
+        <div className={s.messageItem}>
+            {props.message}
+        </div>
+    )
+}
 
 const Messages = (props) => {
     return (
         <div className={s.dialogs}>
             <div className={s.contacts}>
-                <div className={`${s.contact} ${s.active}`}>Sasha</div>
-                <div className={s.contact}>Masha</div>
-                <div className={s.contact}>Dasha</div>
-                <div className={s.contact}>Vasya</div>
-                <div className={s.contact}>Andrey</div>
+                <Contact name='Sasha' id='1' />
+                <Contact name='Dasha' id='2' />
+                <Contact name='Masha' id='3' />
+                <Contact name='Vasya' id='4' />
+                <Contact name='Andre' id='5' />
             </div>
             <div className={s.messages}>
-                <div className={s.messageItem}>Hey</div>
-                <div className={s.messageItem}>Howdy</div>
-                <div className={s.messageItem}>Lol</div>
+                <MessageItem message='Hey' />
+                <MessageItem message='Howdy' />
+                <MessageItem message='Lol' />
             </div>
         </div>
     )

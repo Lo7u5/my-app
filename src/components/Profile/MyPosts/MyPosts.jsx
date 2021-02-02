@@ -7,8 +7,12 @@ const MyPosts = () => {
         <div className={s.postArea}>
             <p>my posts</p>
             <div>
-                <p>new post</p>
-                <input type='text' />
+                <textarea placeholder='New post'></textarea>
+                <div>
+                    <button>
+                        Add post
+                    </button>
+                </div>
             </div>
             <div>
                 <Post message='hey yo' likeCount='15' />

@@ -1,21 +1,3 @@
 main {
     background-color: red;
 }
-
-.backImg {
-    width: 992px;
-}
-
-.avaBio {
-    display: flexbox;
-}
-
-.ava {
-    height: 250px;
-    float: left;
-}
-
-.bio {
-    float: left;
-    margin-left: 1em;
-}

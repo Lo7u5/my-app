@@ -1,0 +1,18 @@
+.backImg {
+    width: 992px;
+}
+
+.avaBio {
+    display: flexbox;
+    padding: 10px;
+}
+
+.ava {
+    height: 250px;
+    float: left;
+}
+
+.bio {
+    float: left;
+    margin-left: 1em;
+}
