@@ -1,4 +1,4 @@
-nav {
+.main {
     grid-area: n;
     background-color: green;
     text-align: center;
@@ -16,4 +16,8 @@ nav {
 
 .item a.active {
     font-weight: bolder;
+}
+
+.sidebar {
+    margin-top: 50px;
 }

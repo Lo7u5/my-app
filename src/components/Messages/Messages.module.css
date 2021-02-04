@@ -3,28 +3,6 @@
     grid-template-columns: 2fr 10fr;
 }
 
-.contacts {
-    padding: 20px;
-}
-
-.contact {
-    padding: 20px;
-}
-
-.contact a {
-    color: white;
-    text-decoration: none;
-}
-
-a.active {
-    color: goldenrod;
-}
-
-.messageItem {
-    padding: 10px;
-    color: white;
-}
-
 .messages {
     padding: 20px;
 }

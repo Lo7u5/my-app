@@ -1,0 +1,8 @@
+.messageItem.yourMessage {
+    text-align: right;
+}
+
+.messageItem {
+    padding: 10px;
+    color: white;
+}
