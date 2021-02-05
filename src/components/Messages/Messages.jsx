@@ -23,7 +23,7 @@ const Messages = (props) => {
     let messageElements = messagesById.map(
         (mess) => <Route
             path={'/messages/' + mess.id}
-            render={() => <MessageElements elementsState={mess.messageFit} />}
+            render={() => <MessageElements elementsState={mess.messageFit} addMessage={props.addMessage} draftMessage={props.draftMessage} dialogId={mess.id} draftMessageState={props.messagesState.draftMessage} />}
             key={mess.id}
         />
     )

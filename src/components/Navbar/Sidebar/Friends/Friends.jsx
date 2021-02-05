@@ -8,7 +8,7 @@ const Friends = (props) =>{
         props.contacts[2],
         props.contacts[3],
     ]
-    let contactSide = friends.map(friend => <Friend name={friend.name} profilePicture={friend.profilePicture}/>)
+    let contactSide = friends.map(friend => <Friend name={friend.name} profilePicture={friend.profilePicture} key={friend.id}/>)
     return (
         <div className={s.main}>
             {contactSide}

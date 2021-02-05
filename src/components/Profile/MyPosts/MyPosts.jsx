@@ -10,7 +10,7 @@ const MyPosts = (props) => {
         <div className={s.postArea}>
             <h3>my posts</h3>
             <div>
-                <textarea placeholder='New post'></textarea>
+                <textarea placeholder='New post' />
                 <div>
                     <button>
                         Add post

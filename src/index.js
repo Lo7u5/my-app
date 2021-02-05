@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import state from './redux/state';
+import './index.css';
+// берем данные из стейта и передаем их в app
+import state, { subscribe, addMessage, draftMessageUpdate } from './redux/state';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App state={state} />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+export let rerenderAllShit = () => {
+    ReactDOM.render(
+        <React.StrictMode>
+            <App state={state} addMessage={addMessage} draftMessage={draftMessageUpdate} />
+        </React.StrictMode>,
+        document.getElementById('root')
+    );
+}
+rerenderAllShit()
+subscribe(rerenderAllShit);
