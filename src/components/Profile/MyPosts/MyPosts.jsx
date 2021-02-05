@@ -4,7 +4,7 @@ import Post from './Post/Post';
 
 const MyPosts = (props) => {
 
-    let postElements = props.postData.map(post => <Post message={post.message} likeCount={post.likeCount} key={post.id} />)
+    let postElements = props.state.profilePage.posts.map(post => <Post message={post.message} likeCount={post.likeCount} key={post.id} />)
 
     return (
         <div className={s.postArea}>

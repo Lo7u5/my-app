@@ -13,7 +13,7 @@ const MessageElements = (props) => {
     let newMessage = React.createRef();
 
     let onMessageChange = () => {
-        props.draftMessage({
+        props.state.draftMessageUpdate({
             message: newMessage.current.value,
             dialogId: props.dialogId,
             messageAuthor: 1
@@ -21,8 +21,8 @@ const MessageElements = (props) => {
     }
 
     let addNewMessage = () => {
-        if (props.draftMessageState.message !== '')
-        props.addMessage()
+        if (props.state.messagesPage.draftMessage.message !== '')
+        props.state.addMessage()
         newMessage.current.focus()
     }
 
@@ -33,7 +33,7 @@ const MessageElements = (props) => {
         <div className={s.messages}>
             {messageElements}
             <div>
-                <textarea onChange={onMessageChange} ref={newMessage} value={props.draftMessageState.message} placeholder='Send message' cols='50' />
+                <textarea onChange={onMessageChange} ref={newMessage} value={props.state.messagesPage.draftMessage.message} placeholder='Send message' cols='50' />
             </div>
             <div>
                 <button onClick={addNewMessage}>Send</button>

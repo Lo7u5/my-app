@@ -4,9 +4,9 @@ import s from './Friends.module.css'
 
 const Friends = (props) =>{
     let friends = [
-        props.contacts[1],
-        props.contacts[2],
-        props.contacts[3],
+        props.state.messagesPage.contacts[1],
+        props.state.messagesPage.contacts[2],
+        props.state.messagesPage.contacts[3],
     ]
     let contactSide = friends.map(friend => <Friend name={friend.name} profilePicture={friend.profilePicture} key={friend.id}/>)
     return (
