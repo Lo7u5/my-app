@@ -30,8 +30,8 @@ let state = {
             messageAuthor: 0
         }
     },
-    rerenderAllShit () {},
-    addMessage () {
+    rerenderAllShit() { },
+    addMessage() {
         let newId = this.messagesPage.messages[this.messagesPage.messages.length - 1].id + 1;
         let newMessage = {
             id: newId,
@@ -48,11 +48,11 @@ let state = {
         };
         this.rerenderAllShit();
     },
-    draftMessageUpdate (newDraft) {
+    draftMessageUpdate(newDraft) {
         this.messagesPage.draftMessage = newDraft;
         this.rerenderAllShit();
     },
-    subscribe (observer) {
+    subscribe(observer) {
         this.rerenderAllShit = observer
     }
 };
