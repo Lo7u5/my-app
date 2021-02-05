@@ -5,7 +5,7 @@ import s from './Sidebar.module.css';
 const Sidebar = (props) =>{
     return (
         <div>
-            <Friends contacts={props.contacts}/>
+            <Friends state={props.state}/>
         </div>
     )
 }

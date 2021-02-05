@@ -14,7 +14,7 @@ const Navbar = (props) => {
                 <div className={s.item}><NavLink to='/settings' activeClassName={s.active}>Settings</NavLink></div>
             </nav>
             <div className={s.sidebar}>
-                <Sidebar contacts={props.messagesState.contacts}/>
+                <Sidebar state={props.state}/>
             </div>
         </div>
     );

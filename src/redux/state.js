@@ -1,5 +1,4 @@
 // храним все нужные данные тут, потом передаем через props
-let rerenderAllShit = () =>{}
 let state = {
     profilePage: {
         posts: [
@@ -30,34 +29,32 @@ let state = {
             dialogId: 0,
             messageAuthor: 0
         }
+    },
+    rerenderAllShit () {},
+    addMessage () {
+        let newId = this.messagesPage.messages[this.messagesPage.messages.length - 1].id + 1;
+        let newMessage = {
+            id: newId,
+            message: this.messagesPage.draftMessage.message,
+            dialogId: this.messagesPage.draftMessage.dialogId,
+            messageAuthor: this.messagesPage.draftMessage.messageAuthor
+        };
+        this.messagesPage.messages.push(newMessage);
+        this.messagesPage.draftMessage = {
+            id: 0,
+            message: '',
+            dialogId: 0,
+            messageAuthor: 0
+        };
+        this.rerenderAllShit();
+    },
+    draftMessageUpdate (newDraft) {
+        this.messagesPage.draftMessage = newDraft;
+        this.rerenderAllShit();
+    },
+    subscribe (observer) {
+        this.rerenderAllShit = observer
     }
 };
-
-export let addMessage = () => {
-    let newId = state.messagesPage.messages[state.messagesPage.messages.length - 1].id + 1;
-    let newMessage = {
-        id: newId,
-        message: state.messagesPage.draftMessage.message,
-        dialogId: state.messagesPage.draftMessage.dialogId,
-        messageAuthor: state.messagesPage.draftMessage.messageAuthor
-    };
-    state.messagesPage.messages.push(newMessage);
-    state.messagesPage.draftMessage = {
-        id: 0,
-        message: '',
-        dialogId: 0,
-        messageAuthor: 0
-    };
-    rerenderAllShit();
-}
-
-export let draftMessageUpdate = (newDraft) => {
-    state.messagesPage.draftMessage = newDraft;
-    rerenderAllShit();
-}
-
-export let subscribe = (observer) => {
-    rerenderAllShit = observer
-}
 
 export default state;
