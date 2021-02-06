@@ -2,11 +2,13 @@ import React from 'react';
 import s from './Messages.module.css';
 import Contact from './Contact/Contact';
 import MessageElements from './MessageElements/MessageElements';
-import { Route } from 'react-router-dom';
+import {Route} from 'react-router-dom';
 
 const Messages = (props) => {
 
-    let contactElements = props.state.messagesPage.contacts.map(contact => <Contact name={contact.name} id={contact.id} profilePicture={contact.profilePicture} key={contact.id} />)
+    let contactElements = props.state.messagesPage.contacts.map(contact => <Contact name={contact.name} id={contact.id}
+                                                                              profilePicture={contact.profilePicture}
+                                                                              key={contact.id}/>)
 
     let contactsAmount = contactElements.length;
 
@@ -18,12 +20,16 @@ const Messages = (props) => {
             id: i,
             messageFit: messagesFilter
         })
-    };
+    }
 
     let messageElements = messagesById.map(
         (mess) => <Route
             path={'/messages/' + mess.id}
-            render={() => <MessageElements elementsState={mess.messageFit} dialogId={mess.id} state={props.state} />}
+            render={() => <MessageElements elementsState={mess.messageFit}
+                                           dialogId={mess.id}
+                                           state={props.state}
+                                           addMessage={props.addMessage}
+                                           draftMessageUpdate={props.draftMessageUpdate}/>}
             key={mess.id}
         />
     )
