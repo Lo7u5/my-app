@@ -4,15 +4,33 @@ import Post from './Post/Post';
 
 const MyPosts = (props) => {
 
-    let postElements = props.state.profilePage.posts.map(post => <Post message={post.message} likeCount={post.likeCount} key={post.id} />)
+    let postElements = props.state.profilePage.posts.map(post => <Post
+        message={post.message} likeCount={post.likeCount} key={post.id}/>)
+
+    let newPost = React.createRef();
+
+    let onPostChange = () => {
+        let randomLike = Math.floor((Math.random() * 10) + 1);
+        props.draftPost({
+            message: newPost.current.value,
+            likeCount: randomLike
+        })
+    }
+
+    let addNewPost = () => {
+        if (props.state.profilePage.draftPost.message !== '') {
+        props.addPost()
+        }
+        newPost.current.focus();
+    }
 
     return (
         <div className={s.postArea}>
             <h3>my posts</h3>
             <div>
-                <textarea placeholder='New post' />
+                <textarea onChange={onPostChange} value={props.state.profilePage.draftPost.message} ref={newPost} placeholder='New post'/>
                 <div>
-                    <button>
+                    <button onClick={addNewPost}>
                         Add post
                     </button>
                 </div>

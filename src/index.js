@@ -13,6 +13,8 @@ export let rerenderAllShit = () => {
                 state={store.getState()}
                 addMessage={store.addMessage.bind(store)}
                 draftMessageUpdate={store.draftMessageUpdate.bind(store)}
+                addPost={store.addPost.bind(store)}
+                draftPost={store.draftPostUpdate.bind(store)}
             />
         </React.StrictMode>,
         document.getElementById('root')

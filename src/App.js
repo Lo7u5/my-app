@@ -20,7 +20,10 @@ const App = (props) => {
                         state={props.state}
                         addMessage={props.addMessage}
                         draftMessageUpdate={props.draftMessageUpdate}/>}/>
-                    <Route path='/profile' render={() => <Profile state={props.state}/>}/>
+                    <Route path='/profile' render={() => <Profile
+                        state={props.state}
+                        addPost={props.addPost}
+                        draftPost={props.draftPost}/>}/>
                     <Route path='/news' render={() => <News/>}/>
                     <Route path='/music' render={() => <Music/>}/>
                     <Route path='/settings' render={() => <Settings/>}/>

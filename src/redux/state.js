@@ -6,17 +6,24 @@ let store = {
             {
                 id: 1,
                 message: 'hey yo',
-                likeCount: '15'
+                likeCount: 15
             },
             {
                 id: 2,
                 message: 'it is happening',
-                likeCount: '1'
+                likeCount: 1
             },
             {
                 id: 3,
                 message: 'hohoho',
-                likeCount: '11'
+                likeCount: 11
+            }
+        ],
+        draftPost: [
+            {
+                id: 0,
+                message: '',
+                likeCount: 0
             }
         ]
     },
@@ -119,6 +126,25 @@ let store = {
     },
     draftMessageUpdate(newDraft) {
         this._state.messagesPage.draftMessage = newDraft;
+        this._callSubscriber();
+    },
+    addPost() {
+        let newId = this._state.profilePage.posts[this._state.profilePage.posts.length - 1].id + 1;
+        let newPost = {
+            id: newId,
+            message: this._state.profilePage.draftPost.message,
+            likeCount: this._state.profilePage.draftPost.likeCount
+        };
+        this._state.profilePage.posts.push(newPost);
+        this._state.profilePage.draftPost = {
+            id: 0,
+            message: '',
+            likeCount: 0
+        };
+        this._callSubscriber();
+    },
+    draftPostUpdate(newDraft) {
+        this._state.profilePage.draftPost = newDraft;
         this._callSubscriber();
     },
     subscribe(observer) {
