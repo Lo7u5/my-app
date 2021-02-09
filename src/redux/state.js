@@ -19,13 +19,12 @@ let store = {
                 likeCount: 11
             }
         ],
-        draftPost: [
+        draftPost:
             {
                 id: 0,
                 message: '',
                 likeCount: 0
             }
-        ]
     },
     messagesPage: {
         contacts: [
