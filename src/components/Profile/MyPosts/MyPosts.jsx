@@ -18,9 +18,8 @@ const MyPosts = (props) => {
     }
 
     let addNewPost = () => {
-        if (props.state.profilePage.draftPost.message !== '') {
-        props.addPost()
-        }
+        if (props.state.profilePage.draftPost.message !== '')
+            props.addPost()
         newPost.current.focus();
     }
 
@@ -28,7 +27,8 @@ const MyPosts = (props) => {
         <div className={s.postArea}>
             <h3>my posts</h3>
             <div>
-                <textarea onChange={onPostChange} value={props.state.profilePage.draftPost.message} ref={newPost} placeholder='New post'/>
+                <textarea onChange={onPostChange} value={props.state.profilePage.draftPost.message} ref={newPost}
+                          placeholder='New post'/>
                 <div>
                     <button onClick={addNewPost}>
                         Add post
