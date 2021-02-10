@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './../Messages.module.css';
 import MessageItem from './../MessageItem/MessageItem';
+import {addMessageActionCreator, draftMessageActionCreator} from "../../../redux/state";
 
 
 const MessageElements = (props) => {
@@ -15,19 +16,16 @@ const MessageElements = (props) => {
     let newMessage = React.createRef();
 
     let onMessageChange = () => {
-        props.dispatch({
-            type: 'DRAFT-MESSAGE-UPDATE',
-            newDraft: {
+        props.dispatch(draftMessageActionCreator({
                 message: newMessage.current.value,
                 dialogId: props.dialogId,
                 messageAuthor: 1
-            }
-        })
+            }))
     }
 
     let addNewMessage = () => {
         if (props.state.messagesPage.draftMessage.message !== '')
-            props.dispatch({type: 'ADD-MESSAGE'})
+            props.dispatch(addMessageActionCreator())
         newMessage.current.focus()
     }
 

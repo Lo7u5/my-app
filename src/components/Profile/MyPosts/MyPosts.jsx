@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
+import {addPostActionCreator, draftPostActionCreator} from "../../../redux/state";
 
 const MyPosts = (props) => {
 
@@ -11,20 +12,13 @@ const MyPosts = (props) => {
 
     let onPostChange = () => {
         let randomLike = Math.floor((Math.random() * 10) + 1);
-        props.dispatch(
-            {
-                type: 'DRAFT-POST-UPDATE',
-                newDraft: {
-                    message: newPost.current.value,
-                    likeCount: randomLike
-                }
-            }
+        props.dispatch(draftPostActionCreator({ message: newPost.current.value, likeCount: randomLike })
         )
     }
 
     let addNewPost = () => {
         if (props.state.profilePage.draftPost.message !== '')
-            props.dispatch({type: 'ADD-POST'})
+            props.dispatch(addPostActionCreator())
         newPost.current.focus();
     }
 

@@ -1,5 +1,10 @@
 // храним все нужные данные тут, потом передаем через props
 
+const addMessage = 'ADD-MESSAGE';
+const draftMessageUpdate = 'DRAFT-MESSAGE-UPDATE';
+const addPost = 'ADD-POST';
+const draftPostUpdate = 'DRAFT-POST-UPDATE';
+
 let store = {
     _state: {
         profilePage: {
@@ -150,6 +155,11 @@ let store = {
         }
     }
 };
+
+export const addMessageActionCreator = () => ({ type: addMessage })
+export const draftMessageActionCreator = (newDraft) => ({type: draftMessageUpdate, newDraft: newDraft})
+export const addPostActionCreator = () => ({ type: addPost })
+export const draftPostActionCreator = (newDraft) => ({type: draftPostUpdate, newDraft: newDraft})
 
 export default store;
 window.store = store;
