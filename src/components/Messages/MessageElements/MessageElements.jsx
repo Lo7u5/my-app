@@ -15,16 +15,19 @@ const MessageElements = (props) => {
     let newMessage = React.createRef();
 
     let onMessageChange = () => {
-        props.draftMessageUpdate({
-            message: newMessage.current.value,
-            dialogId: props.dialogId,
-            messageAuthor: 1
+        props.dispatch({
+            type: 'DRAFT-MESSAGE-UPDATE',
+            newDraft: {
+                message: newMessage.current.value,
+                dialogId: props.dialogId,
+                messageAuthor: 1
+            }
         })
     }
 
     let addNewMessage = () => {
         if (props.state.messagesPage.draftMessage.message !== '')
-            props.addMessage()
+            props.dispatch({type: 'ADD-MESSAGE'})
         newMessage.current.focus()
     }
 

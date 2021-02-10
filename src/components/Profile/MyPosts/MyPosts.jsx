@@ -11,15 +11,20 @@ const MyPosts = (props) => {
 
     let onPostChange = () => {
         let randomLike = Math.floor((Math.random() * 10) + 1);
-        props.draftPost({
-            message: newPost.current.value,
-            likeCount: randomLike
-        })
+        props.dispatch(
+            {
+                type: 'DRAFT-POST-UPDATE',
+                newDraft: {
+                    message: newPost.current.value,
+                    likeCount: randomLike
+                }
+            }
+        )
     }
 
     let addNewPost = () => {
         if (props.state.profilePage.draftPost.message !== '')
-            props.addPost()
+            props.dispatch({type: 'ADD-POST'})
         newPost.current.focus();
     }
 

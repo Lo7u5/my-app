@@ -7,8 +7,8 @@ import {Route} from 'react-router-dom';
 const Messages = (props) => {
 
     let contactElements = props.state.messagesPage.contacts.map(contact => <Contact name={contact.name} id={contact.id}
-                                                                              profilePicture={contact.profilePicture}
-                                                                              key={contact.id}/>)
+                                                                                    profilePicture={contact.profilePicture}
+                                                                                    key={contact.id}/>)
 
     let contactsAmount = contactElements.length;
 
@@ -28,8 +28,7 @@ const Messages = (props) => {
             render={() => <MessageElements elementsState={mess.messageFit}
                                            dialogId={mess.id}
                                            state={props.state}
-                                           addMessage={props.addMessage}
-                                           draftMessageUpdate={props.draftMessageUpdate}/>}
+                                           dispatch={props.dispatch}/>}
             key={mess.id}
         />
     )
