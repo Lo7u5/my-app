@@ -1,10 +1,5 @@
-const addMessage = 'ADD-MESSAGE';
-const draftMessageUpdate = 'DRAFT-MESSAGE-UPDATE';
-const addPost = 'ADD-POST';
-const draftPostUpdate = 'DRAFT-POST-UPDATE';
-const likes = () => {
-    return Math.floor((Math.random() * 10) + 1)
-}
+import profileReducer from "./profile-reducer";
+import messageReducer from "./message-reducer";
 
 let store = {
     _state: {
@@ -114,45 +109,11 @@ let store = {
         this._callSubscriber = observer
     },
     dispatch(action) {
-        if (action.type === addMessage) {
-            let newId = this._state.messagesPage.messages[this._state.messagesPage.messages.length - 1].id + 1;
-            let newMessage = {
-                id: newId,
-                message: this._state.messagesPage.draftMessage.message,
-                dialogId: this._state.messagesPage.draftMessage.dialogId,
-                messageAuthor: this._state.messagesPage.draftMessage.messageAuthor
-            };
-            this._state.messagesPage.messages.push(newMessage);
-            this._state.messagesPage.draftMessage = {
-                message: '',
-                dialogId: 0,
-                messageAuthor: 0
-            };
-            this._callSubscriber(this._state);
-        } else if (action.type === draftMessageUpdate) {
-            this._state.messagesPage.draftMessage = action.newDraft;
-            this._callSubscriber(this._state);
-        } else if (action.type === addPost) {
-            let newId = this._state.profilePage.posts[this._state.profilePage.posts.length - 1].id + 1;
-            let newPost = {
-                id: newId,
-                message: this._state.profilePage.draftPost.message,
-                likeCount: likes()
-            };
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.draftPost = {message: ''};
-            this._callSubscriber(this._state);
-        } else if (action.type === draftPostUpdate) {
-            this._state.profilePage.draftPost = action.newDraft;
-            this._callSubscriber(this._state);
-        }
+       this._state.profilePage = profileReducer(this._state.profilePage, action);
+       this._state.messagesPage = messageReducer(this._state.messagesPage, action);
+       this._callSubscriber(this._state);
     }
 };
-
-export const addMessageActionCreator = () => ({type: addMessage})
-export const draftMessageActionCreator = (newDraft) => ({type: draftMessageUpdate, newDraft: newDraft})
-export const addPostActionCreator = () => ({type: addPost})
-export const draftPostActionCreator = (newDraft) => ({type: draftPostUpdate, newDraft: newDraft})
 
 export default store;
 window.store = store;
