@@ -13,20 +13,19 @@ const MessageElements = (props) => {
             key={message.id}/>
     )
 
-    let newMessage = React.createRef();
-
-    let onMessageChange = () => {
+    let onMessageChange = (draft) => {
+        let newMessage = draft.target.value;
         props.dispatch(draftMessageActionCreator({
-                message: newMessage.current.value,
-                dialogId: props.dialogId,
-                messageAuthor: 1
-            }))
+            message: newMessage,
+            dialogId: props.dialogId,
+            messageAuthor: 1
+        }))
     }
 
-    let addNewMessage = () => {
+    let addNewMessage = (newMessage) => {
         if (props.state.messagesPage.draftMessage.message !== '')
             props.dispatch(addMessageActionCreator())
-        newMessage.current.focus()
+        newMessage.target.focus()
     }
 
     return (
@@ -35,7 +34,6 @@ const MessageElements = (props) => {
             <div>
                 <textarea
                     onChange={onMessageChange}
-                    ref={newMessage}
                     value={props.state.messagesPage.draftMessage.message}
                     placeholder='Send message' cols='50'/>
             </div>

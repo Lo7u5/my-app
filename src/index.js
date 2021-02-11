@@ -2,20 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
-// берем данные из стейта и передаем их в app
 import store from './redux/state';
+import {BrowserRouter} from "react-router-dom";
 
-
-export let rerenderAllShit = () => {
+export let rerenderAllShit = (state) => {
     ReactDOM.render(
         <React.StrictMode>
-            <App
-                state={store.getState()}
-                dispatch={store.dispatch.bind(store)}
-            />
+            <BrowserRouter>
+                <App
+                    state={state}
+                    dispatch={store.dispatch.bind(store)}
+                />
+            </BrowserRouter>
         </React.StrictMode>,
         document.getElementById('root')
     );
 }
-rerenderAllShit()
+rerenderAllShit(store.getState())
 store.subscribe(rerenderAllShit);

@@ -1,9 +1,10 @@
-// храним все нужные данные тут, потом передаем через props
-
 const addMessage = 'ADD-MESSAGE';
 const draftMessageUpdate = 'DRAFT-MESSAGE-UPDATE';
 const addPost = 'ADD-POST';
 const draftPostUpdate = 'DRAFT-POST-UPDATE';
+const likes = () => {
+    return Math.floor((Math.random() * 10) + 1)
+}
 
 let store = {
     _state: {
@@ -27,9 +28,7 @@ let store = {
             ],
             draftPost:
                 {
-                    id: 0,
-                    message: '',
-                    likeCount: 0
+                    message: ''
                 }
         },
         messagesPage: {
@@ -100,7 +99,6 @@ let store = {
                 }
             ],
             draftMessage: {
-                id: 0,
                 message: '',
                 dialogId: 0,
                 messageAuthor: 0
@@ -116,7 +114,7 @@ let store = {
         this._callSubscriber = observer
     },
     dispatch(action) {
-        if (action.type === 'ADD-MESSAGE') {
+        if (action.type === addMessage) {
             let newId = this._state.messagesPage.messages[this._state.messagesPage.messages.length - 1].id + 1;
             let newMessage = {
                 id: newId,
@@ -126,39 +124,34 @@ let store = {
             };
             this._state.messagesPage.messages.push(newMessage);
             this._state.messagesPage.draftMessage = {
-                id: 0,
                 message: '',
                 dialogId: 0,
                 messageAuthor: 0
             };
-            this._callSubscriber();
-        } else if (action.type === 'DRAFT-MESSAGE-UPDATE') {
+            this._callSubscriber(this._state);
+        } else if (action.type === draftMessageUpdate) {
             this._state.messagesPage.draftMessage = action.newDraft;
-            this._callSubscriber();
-        } else if (action.type === 'ADD-POST') {
+            this._callSubscriber(this._state);
+        } else if (action.type === addPost) {
             let newId = this._state.profilePage.posts[this._state.profilePage.posts.length - 1].id + 1;
             let newPost = {
                 id: newId,
                 message: this._state.profilePage.draftPost.message,
-                likeCount: this._state.profilePage.draftPost.likeCount
+                likeCount: likes()
             };
             this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.draftPost = {
-                id: 0,
-                message: '',
-                likeCount: 0
-            };
-            this._callSubscriber();
-        } else if (action.type === 'DRAFT-POST-UPDATE') {
+            this._state.profilePage.draftPost = {message: ''};
+            this._callSubscriber(this._state);
+        } else if (action.type === draftPostUpdate) {
             this._state.profilePage.draftPost = action.newDraft;
-            this._callSubscriber();
+            this._callSubscriber(this._state);
         }
     }
 };
 
-export const addMessageActionCreator = () => ({ type: addMessage })
+export const addMessageActionCreator = () => ({type: addMessage})
 export const draftMessageActionCreator = (newDraft) => ({type: draftMessageUpdate, newDraft: newDraft})
-export const addPostActionCreator = () => ({ type: addPost })
+export const addPostActionCreator = () => ({type: addPost})
 export const draftPostActionCreator = (newDraft) => ({type: draftPostUpdate, newDraft: newDraft})
 
 export default store;
