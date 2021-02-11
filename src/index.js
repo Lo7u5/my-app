@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
-import store from './redux/store';
+import store from './redux/redux-store';
 import {BrowserRouter} from "react-router-dom";
 
 export let rerenderAllShit = (state) => {
@@ -19,4 +19,7 @@ export let rerenderAllShit = (state) => {
     );
 }
 rerenderAllShit(store.getState())
-store.subscribe(rerenderAllShit);
+store.subscribe(() => {
+    let state = store.getState();
+    rerenderAllShit(state)
+});
