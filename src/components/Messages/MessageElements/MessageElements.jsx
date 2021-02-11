@@ -23,7 +23,7 @@ const MessageElements = (props) => {
     }
 
     let addNewMessage = (newMessage) => {
-        if (props.state.messagesPage.draftMessage.message !== '')
+        if (props.state.draftMessage.message !== '')
             props.dispatch(addMessageActionCreator())
         newMessage.target.focus()
     }
@@ -34,7 +34,7 @@ const MessageElements = (props) => {
             <div>
                 <textarea
                     onChange={onMessageChange}
-                    value={props.state.messagesPage.draftMessage.message}
+                    value={props.state.draftMessage.message}
                     placeholder='Send message' cols='50'/>
             </div>
             <div>

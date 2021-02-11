@@ -16,10 +16,10 @@ const App = (props) => {
             <Navbar state={props.state}/>
             <div className='app-wrapper-content'>
                 <Route path='/messages' render={() => <Messages
-                    state={props.state}
+                    state={props.state.messagesPage}
                     dispatch={props.dispatch}/>}/>
                 <Route path='/profile' render={() => <Profile
-                    state={props.state}
+                    state={props.state.profilePage}
                     dispatch={props.dispatch}/>}/>
                 <Route path='/news' render={() => <News/>}/>
                 <Route path='/music' render={() => <Music/>}/>

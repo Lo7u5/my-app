@@ -5,7 +5,7 @@ import {addPostActionCreator, draftPostActionCreator} from "../../../redux/profi
 
 const MyPosts = (props) => {
 
-    let postElements = props.state.profilePage.posts.map(post => <Post
+    let postElements = props.state.posts.map(post => <Post
         message={post.message} likeCount={post.likeCount} key={post.id}/>)
 
     let onPostChange = (draft) => {
@@ -15,7 +15,7 @@ const MyPosts = (props) => {
     }
 
     let addNewPost = (newPost) => {
-        if (props.state.profilePage.draftPost.message !== '')
+        if (props.state.draftPost.message !== '')
             props.dispatch(addPostActionCreator())
         newPost.target.focus();
     }
@@ -24,7 +24,7 @@ const MyPosts = (props) => {
         <div className={s.postArea}>
             <h3>my posts</h3>
             <div>
-                <textarea onChange={onPostChange} value={props.state.profilePage.draftPost.message}
+                <textarea onChange={onPostChange} value={props.state.draftPost.message}
                           placeholder='New post'/>
                 <div>
                     <button onClick={addNewPost}>
