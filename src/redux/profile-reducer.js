@@ -5,44 +5,54 @@ const likes = () => {
 }
 
 let initialState = {
-        posts: [
-            {
-                id: 1,
-                message: 'hey yo',
-                likeCount: 15
-            },
-            {
-                id: 2,
-                message: 'it is happening',
-                likeCount: 1
-            },
-            {
-                id: 3,
-                message: 'hohoho',
-                likeCount: 11
-            }
-        ],
-        draftPost:
-            {
-                message: ''
-            }
+    posts: [
+        {
+            id: 1,
+            message: 'hey yo',
+            likeCount: 15
+        },
+        {
+            id: 2,
+            message: 'it is happening',
+            likeCount: 1
+        },
+        {
+            id: 3,
+            message: 'hohoho',
+            likeCount: 11
+        }
+    ],
+    draftPost:
+        {
+            message: ''
+        }
 };
 
 const profileReducer = (state = initialState, action) => {
+
+    let stateCopy = {
+        ...state,
+        posts: [...state.posts],
+        draftPost: {...state.draftPost}
+    };
+
     switch (action.type) {
         case addPost:
-            let newId = state.posts[state.posts.length - 1].id + 1;
-            let newPost = {
-                id: newId,
-                message: state.draftPost.message,
-                likeCount: likes()
-            };
-            state.posts.push(newPost);
-            state.draftPost = {message: ''};
-            return state;
+            if (stateCopy.draftPost.message !== '') {
+                let newId = stateCopy.posts[stateCopy.posts.length - 1].id + 1;
+                let newPost = {
+                    id: newId,
+                    message: stateCopy.draftPost.message,
+                    likeCount: likes()
+                };
+                stateCopy.posts.push(newPost);
+                stateCopy.draftPost = {message: ''};
+            }
+            return stateCopy;
         case draftPostUpdate:
-            state.draftPost = action.newDraft;
-            return state;
+            stateCopy.draftPost = action.newDraft;
+            return stateCopy;
+
         default:
             return state;
     }

@@ -5,9 +5,9 @@ import s from './Friends.module.css'
 const Friends = (props) => {
 
     let friends = [
-        props.state.messagesPage.contacts[1],
-        props.state.messagesPage.contacts[2],
-        props.state.messagesPage.contacts[3]
+        props.state.contacts[1],
+        props.state.contacts[2],
+        props.state.contacts[3]
     ]
 
     let contactSide = friends.map(friend => <Friend
