@@ -77,34 +77,33 @@ let initialState = {
 
 const messageReducer = (state = initialState, action) => {
 
-    let stateCopy = {
-        ...state,
-        contacts: [...state.contacts],
-        messages: [...state.messages],
-        draftMessage: {...state.draftMessage}
-    };
-
     switch (action.type) {
         case addMessage:
-            if (stateCopy.draftMessage.message !== '') {
-                let newId = stateCopy.messages[stateCopy.messages.length - 1].id + 1;
-                let newMessage = {
-                    id: newId,
-                    message: stateCopy.draftMessage.message,
-                    dialogId: stateCopy.draftMessage.dialogId,
-                    messageAuthor: stateCopy.draftMessage.messageAuthor
+            let newId = state.messages[state.messages.length - 1].id + 1;
+            let newMessage = {
+                id: newId,
+                message: state.draftMessage.message,
+                dialogId: state.draftMessage.dialogId,
+                messageAuthor: state.draftMessage.messageAuthor
+            };
+            if (state.draftMessage.message !== '') {
+                return {
+                    ...state,
+                    messages: [...state.messages, newMessage],
+                    draftMessage: {
+                        message: '',
+                        dialogId: 0,
+                        messageAuthor: 0
+                    }
                 };
-                stateCopy.messages.push(newMessage);
-                stateCopy.draftMessage = {
-                    message: '',
-                    dialogId: 0,
-                    messageAuthor: 0
-                };
+            } else {
+                return state;
             }
-            return stateCopy;
         case draftMessageUpdate:
-            stateCopy.draftMessage = action.newDraft;
-            return stateCopy;
+            return {
+                ...state,
+                draftMessage: action.newDraft
+            };
         default:
             return state;
     }
