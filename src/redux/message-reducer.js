@@ -83,7 +83,7 @@ const messageReducer = (state = initialState, action) => {
             let newMessage = {
                 id: newId,
                 message: state.draftMessage.message,
-                dialogId: Number(state.draftMessage.dialogId),
+                dialogId: state.draftMessage.dialogId,
                 messageAuthor: state.draftMessage.messageAuthor
             };
             if (state.draftMessage.message !== '') {

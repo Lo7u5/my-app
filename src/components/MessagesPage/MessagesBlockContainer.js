@@ -10,7 +10,7 @@ const mapStateToProps = (state, {match}) => {
     return {
         messages: correspondingMessages,
         draftMessage: state.messagesPage.draftMessage.message,
-        dialogId: dialogId
+        dialogId: Number(dialogId)
     }
 }
 const mapDispatchToProps = (dispatch) => {
