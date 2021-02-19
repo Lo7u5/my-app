@@ -1,11 +1,11 @@
-import React from 'react';
-import s from './../Messages.module.css';
-import MessageItem from './../MessageItem/MessageItem';
+import React from "react";
+import s from "./Messages.module.css";
+import MessageItem from "./MessageItems/MessageItem";
 
 
-const MessageElements = (props) => {
+const Messages = (props) => {
 
-    let messageElements = props.elementsState.map(
+    let messageElements = props.messages.map(
         (message) => <MessageItem
             message={message.message}
             messageAuthor={message.messageAuthor}
@@ -13,12 +13,12 @@ const MessageElements = (props) => {
     )
 
     let onMessageChange = (draft) => {
-        let newMessage = {draft: draft.target.value, dialogId: props.dialogId};
+        let newMessage = {message: draft.target.value, dialogId: props.dialogId, messageAuthor: 1};
         props.dispatch.onMessageChange(newMessage)
     }
 
     let addNewMessage = () => {
-            props.dispatch.addNewMessage()
+        props.dispatch.addNewMessage()
         document.getElementById('messageTextArea').focus()
     }
 
@@ -29,7 +29,7 @@ const MessageElements = (props) => {
                 <textarea
                     id='messageTextArea'
                     onChange={onMessageChange}
-                    value={props.state.draftMessage.message}
+                    value={props.draftMessage}
                     placeholder='Send message' cols='50'/>
             </div>
             <div>
@@ -39,4 +39,4 @@ const MessageElements = (props) => {
     )
 }
 
-export default MessageElements;
+export default Messages;

@@ -10,8 +10,12 @@
     padding: 20px;
 }
 
+.contact img {
+    margin-right: 5px;
+}
+
 .contact a {
-    color: white;
+    color: #1995ad;
     text-decoration: none;
 }
 

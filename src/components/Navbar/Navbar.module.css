@@ -1,16 +1,16 @@
 .main {
     grid-area: n;
-    background-color: green;
+    background-color: rgba(188, 186, 190, 0.25);
     text-align: center;
+    border-radius: 10px;
 }
 
 .item {
-    color: white;
     padding-top: 5px;
 }
 
 .item a {
-    color: white;
+    color: #1995ad;
     text-decoration: none;
 }
 

@@ -1,5 +1,6 @@
 .backImg {
     width: 992px;
+    border-radius: 10px;
 }
 
 .avaBio {
@@ -10,9 +11,11 @@
 .ava {
     height: 250px;
     float: left;
+    border-radius: 10px;
 }
 
 .bio {
     float: left;
     margin-left: 1em;
+    color: #1995ad;
 }

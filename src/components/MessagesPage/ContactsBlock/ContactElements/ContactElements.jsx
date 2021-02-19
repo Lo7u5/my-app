@@ -1,8 +1,8 @@
-import React from 'react';
-import s from './Contact.module.css';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import s from "../Contact.module.css";
+import {NavLink} from "react-router-dom";
 
-const Contact = (props) => {
+const ContactElements = (props) => {
     let path = "/messages/" + props.id;
     return (
         <div className={s.contact}>
@@ -14,4 +14,4 @@ const Contact = (props) => {
     )
 }
 
-export default Contact;
+export default ContactElements;
