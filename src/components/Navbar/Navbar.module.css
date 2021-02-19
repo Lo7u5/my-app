@@ -18,6 +18,10 @@
     font-weight: bolder;
 }
 
+.item.step {
+    margin-top: 20px;
+}
+
 .sidebar {
     margin-top: 50px;
 }

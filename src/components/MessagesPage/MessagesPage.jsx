@@ -8,7 +8,7 @@ const MessagesPage = (props) => {
     return (
         <div className={s.dialogs}>
             <ContactsPageContainer/>
-            <Route path='/messages/:dialogId' component={MessagesPageContainer}/>
+            <Route path='/messages/:dialogId' render={() => <MessagesPageContainer/>}/>
         </div>
     )
 }
