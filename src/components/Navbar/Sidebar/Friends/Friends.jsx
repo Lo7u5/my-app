@@ -13,6 +13,7 @@ const Friends = (props) => {
     let contactSide = friends.map(friend => <Friend
         name={friend.name}
         profilePicture={friend.profilePicture}
+        id={friend.id}
         key={friend.id}/>)
 
     return (

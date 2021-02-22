@@ -1,8 +1,12 @@
 .messageItem.yourMessage {
     text-align: right;
+    border: solid 1px rgb(25,149,173);
 }
 
 .messageItem {
+    margin: 5px;
     padding: 10px;
     color: #1995ad;
+    border: solid 1px rgb(161,214,226);
+    border-radius: 20px;
 }

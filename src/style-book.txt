@@ -1,0 +1,21 @@
+Снежное облако
+#f1f1f2
+rgb(241,241,242)
+
+Тепло-серый
+#bcbabe
+rgb(188,186,190)
+
+Голубой лед
+#a1d6e2
+rgb(161,214,226)
+
+Ледниково-синий
+#1995ad
+rgb(25,149,173)
+
+тень
+box-shadow: -4px 4px 5px rgba(0, 0, 0, 0.2);
+
+цветовые схемы
+https://zen.yandex.ru/media/canva/100-cvetovyh-sochetanii-kotorye-privlekut-nujnuiu-auditoriiu-5d5413854735a600ae103d27
