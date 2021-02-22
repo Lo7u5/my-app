@@ -6,8 +6,8 @@ const Friend = (props) => {
     let path = "/messages/" + props.id;
     return (
         <div className={s.main}>
-            <img src={props.profilePicture} alt='ava'  width='50px' className={s.ava}/>
-            <NavLink to={path}><span className={s.name}>{props.name}</span></NavLink>
+            <NavLink to={path}><img src={props.profilePicture} alt='ava'  width='50px' className={s.ava}/>
+            <span className={s.name}>{props.name}</span></NavLink>
         </div>
 
     )
