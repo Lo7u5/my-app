@@ -4,16 +4,35 @@ import * as axios from "axios";
 
 class Users extends React.Component {
 
-    constructor(props) {
-        super(props);
+    componentDidMount() {
+        axios.get(`http://localhost:3004/users?_page=${this.props.currentPage}&&_limit=${this.props.pageSize}`)
+            .then(response => {
+                this.props.dispatch.setUsers(response.data)
+            })
         axios.get("http://localhost:3004/users/")
             .then(response => {
-                debugger
+                let totalCount = response.data.length;
+                this.props.dispatch.setTotalUsers(totalCount)
+            })
+    }
+
+    onPageChanged = (pageNumber) => {
+        this.props.dispatch.setPage(pageNumber)
+        axios.get(`http://localhost:3004/users?_page=${pageNumber}&&_limit=${this.props.pageSize}`)
+            .then(response => {
                 this.props.dispatch.setUsers(response.data)
             })
     }
 
     render() {
+
+        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
+
+        let pages = [];
+        for (let i = 1; i <= pagesCount; i++) {
+            pages.push(i);
+        }
+
         return <div>
             {this.props.users.map(users =>
                 <div key={users.id} className={s.usersContainer}>
@@ -35,6 +54,13 @@ class Users extends React.Component {
                         <div className={s.country}>{users.location.country}</div>
                     </div>
                 </div>)}
+
+            <div>{pages.map(p => {
+                return <span key={p} className={`${this.props.currentPage === p && s.selectedPage} ${s.pageSelector}`}
+                             onClick={() => {
+                                 this.onPageChanged(p)
+                             }}>{p}</span>
+            })}</div>
         </div>
     }
 }

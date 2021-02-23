@@ -44,3 +44,11 @@
     border-radius: 5px;
     box-shadow: -4px 4px 5px rgba(0, 0, 0, 0.2);
 }
+
+.selectedPage {
+    font-weight: bold;
+}
+
+.pageSelector {
+    cursor: pointer;
+}
