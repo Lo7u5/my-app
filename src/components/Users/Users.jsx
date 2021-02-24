@@ -9,10 +9,9 @@ class Users extends React.Component {
             .then(response => {
                 this.props.dispatch.setUsers(response.data)
             })
-        axios.get("http://localhost:3004/users/")
+        axios.get("http://localhost:3004/totalUsersCount/")
             .then(response => {
-                let totalCount = response.data.length;
-                this.props.dispatch.setTotalUsers(totalCount)
+                this.props.dispatch.setTotalUsers(response.data)
             })
     }
 
@@ -55,12 +54,14 @@ class Users extends React.Component {
                     </div>
                 </div>)}
 
-            <div>{pages.map(p => {
+            <div className={s.pages}>
+                {pages.map(p => {
                 return <span key={p} className={`${this.props.currentPage === p && s.selectedPage} ${s.pageSelector}`}
                              onClick={() => {
                                  this.onPageChanged(p)
                              }}>{p}</span>
-            })}</div>
+            })}
+            </div>
         </div>
     }
 }

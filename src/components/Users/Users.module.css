@@ -7,6 +7,7 @@
 
 .photoAndButton {
     grid-area: pb;
+    margin: 0 auto;
 }
 
 .usersInfo {
@@ -45,8 +46,15 @@
     box-shadow: -4px 4px 5px rgba(0, 0, 0, 0.2);
 }
 
+.pages {
+    margin: 10px;
+}
+
 .selectedPage {
     font-weight: bold;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: larger;
 }
 
 .pageSelector {
