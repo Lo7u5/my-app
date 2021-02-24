@@ -13,19 +13,5 @@ const mapStateToProps = (state, {match}) => {
         dialogId: Number(dialogId)
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
-        dispatch: {
-            onMessageChange: (draft) => {
-                dispatch(draftMessageActionCreator(draft))
-            },
-            addNewMessage: () => {
-                dispatch(addMessageActionCreator())
-            }
-        }
-    }
-}
 
-const MessagesPageContainer = connect(mapStateToProps, mapDispatchToProps)(Messages);
-
-export default MessagesPageContainer;
+export default connect(mapStateToProps, {draftMessageActionCreator, addMessageActionCreator})(Messages);

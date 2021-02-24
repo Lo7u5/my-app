@@ -59,6 +59,6 @@ const profileReducer = (state = initialState, action) => {
 }
 
 export const addPostActionCreator = () => ({type: addPost})
-export const draftPostActionCreator = (newDraft) => ({type: draftPostUpdate, newDraft: newDraft})
+export const draftPostActionCreator = (newDraft) => ({type: draftPostUpdate, newDraft})
 
 export default profileReducer;

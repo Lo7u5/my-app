@@ -1,6 +1,7 @@
 import React from "react";
 import s from "./Messages.module.css";
 import MessageItem from "./MessageItems/MessageItem";
+import {addMessageActionCreator, draftMessageActionCreator} from "../../../redux/message-reducer";
 
 
 const Messages = (props) => {
@@ -14,11 +15,11 @@ const Messages = (props) => {
 
     let onMessageChange = (draft) => {
         let newMessage = {message: draft.target.value, dialogId: props.dialogId, messageAuthor: 1};
-        props.dispatch.onMessageChange(newMessage)
+        props.draftMessageActionCreator(newMessage)
     }
 
     let addNewMessage = () => {
-        props.dispatch.addNewMessage()
+        props.addMessageActionCreator()
         document.getElementById('messageTextArea').focus()
     }
 

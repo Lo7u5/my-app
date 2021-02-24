@@ -8,11 +8,12 @@ const MyPosts = (props) => {
         message={post.message} likeCount={post.likeCount} key={post.id}/>)
 
     let onPostChange = (draft) => {
-        props.onPostChange(draft)
+        let newPost = {message: draft.target.value};
+        props.draftPostActionCreator(newPost)
     }
 
     let addNewPost = () => {
-        props.addNewPost()
+        props.addPostActionCreator()
         document.getElementById('postTextArea').focus()
     }
 
