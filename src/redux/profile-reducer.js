@@ -1,5 +1,7 @@
 const addPost = 'ADD-POST';
 const draftPostUpdate = 'DRAFT-POST-UPDATE';
+const USERPROFILE = 'USER-PROFILE';
+
 const likes = () => {
     return Math.floor((Math.random() * 10) + 1)
 }
@@ -25,7 +27,8 @@ let initialState = {
     draftPost:
         {
             message: ''
-        }
+        },
+    userProfile: null
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -52,7 +55,11 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 draftPost: action.newDraft
             };
-
+        case USERPROFILE:
+            return {
+                ...state,
+                userProfile: action.userProfile
+            };
         default:
             return state;
     }
@@ -60,5 +67,6 @@ const profileReducer = (state = initialState, action) => {
 
 export const addPostActionCreator = () => ({type: addPost})
 export const draftPostActionCreator = (newDraft) => ({type: draftPostUpdate, newDraft})
+export const setUserProfileAC = (userProfile) => ({type: USERPROFILE, userProfile})
 
 export default profileReducer;

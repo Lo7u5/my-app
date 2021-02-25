@@ -16,24 +16,21 @@ class UsersClassContainer extends React.Component {
 
     componentDidMount() {
         this.props.toggleIsFetchingAC(true)
-        axios.get(`http://localhost:3004/users?_page=${this.props.currentPage}&&_limit=${this.props.pageSize}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(response => {
                 this.props.toggleIsFetchingAC(false)
-                this.props.setUsersAC(response.data)
-            })
-        axios.get("http://localhost:3004/totalUsersCount/")
-            .then(response => {
-                this.props.setTotalUsersAC(response.data)
+                this.props.setUsersAC(response.data.items)
+                this.props.setTotalUsersAC(response.data.totalCount)
             })
     }
 
     onPageChanged = (pageNumber) => {
         this.props.toggleIsFetchingAC(true)
         this.props.setPageAC(pageNumber)
-        axios.get(`http://localhost:3004/users?_page=${pageNumber}&&_limit=${this.props.pageSize}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
             .then(response => {
                 this.props.toggleIsFetchingAC(false)
-                this.props.setUsersAC(response.data)
+                this.props.setUsersAC(response.data.items)
             })
     }
 

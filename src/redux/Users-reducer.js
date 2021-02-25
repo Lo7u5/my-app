@@ -7,7 +7,7 @@ const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 let initialState = {
     users: [],
-    pageSize: 3,
+    pageSize: 5,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false
@@ -58,7 +58,7 @@ const userReducer = (state = initialState, action) => {
         case SET_TOTAL_USERS:
             return {
                 ...state,
-                totalUsersCount: [...action.users]
+                totalUsersCount: action.users
             };
         case TOGGLE_IS_FETCHING:
             return {

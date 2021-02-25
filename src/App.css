@@ -15,6 +15,7 @@
     grid-area: c;
     background-color: rgba(188, 186, 190, 0.25);
     border-radius: 10px;
+    max-width: 995px;
 }
 
 button {
