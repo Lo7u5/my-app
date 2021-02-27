@@ -1,7 +1,6 @@
 import React from "react";
 import s from "./Messages.module.css";
 import MessageItem from "./MessageItems/MessageItem";
-import {addMessageActionCreator, draftMessageActionCreator} from "../../../redux/message-reducer";
 
 
 const Messages = (props) => {
@@ -34,7 +33,7 @@ const Messages = (props) => {
                     placeholder='Send message' cols='50'/>
             </div>
             <div>
-                <button onClick={addNewMessage}>Send</button>
+                <button className='btn' onClick={addNewMessage}>Send</button>
             </div>
         </div>
     )

@@ -24,7 +24,7 @@ const MyPosts = (props) => {
                 <textarea id='postTextArea' onChange={onPostChange} value={props.state.draftPost.message}
                           placeholder='New post'/>
                 <div>
-                    <button onClick={addNewPost}>
+                    <button className='btn' onClick={addNewPost}>
                         Add post
                     </button>
                 </div>

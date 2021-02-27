@@ -1,20 +1,19 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import s from './Navbar.module.css';
 import Sidebar from './Sidebar/Sidebar'
 
 const Navbar = (props) => {
     return (
-        <div className={s.main}>
+        <div className='gridNav'>
             <nav>
-                <div className={s.item}><NavLink to='/profile' activeClassName={s.active}>Profile</NavLink></div>
-                <div className={s.item}><NavLink to='/messages' activeClassName={s.active}>Messages</NavLink></div>
-                <div className={s.item}><NavLink to='/news' activeClassName={s.active}>News</NavLink></div>
-                <div className={s.item}><NavLink to='/music' activeClassName={s.active}>Music</NavLink></div>
-                <div className={s.item}><NavLink to='/settings' activeClassName={s.active}>Settings</NavLink></div>
+                <div className='pt-1.5 mt-3'><NavLink className='text-myGray-darkIce' to='/profile' activeClassName='font-bold'>Profile</NavLink></div>
+                <div className='pt-1.5'><NavLink className='text-myGray-darkIce' to='/messages' activeClassName='font-bold'>Messages</NavLink></div>
+                <div className='pt-1.5'><NavLink className='text-myGray-darkIce' to='/news' activeClassName='font-bold'>News</NavLink></div>
+                <div className='pt-1.5'><NavLink className='text-myGray-darkIce' to='/music' activeClassName='font-bold'>Music</NavLink></div>
+                <div className='pt-1.5'><NavLink className='text-myGray-darkIce' to='/settings' activeClassName='font-bold'>Settings</NavLink></div>
             </nav>
-            <div className={`${s.item} ${s.step}`}><NavLink to='/users' activeClassName={s.active}>Find Users</NavLink></div>
-            <div className={s.sidebar}>
+            <div className='pt-1.5 mt-8'><NavLink className='text-myGray-darkIce' to='/users' activeClassName='font-bold'>Find Users</NavLink></div>
+            <div className='mt-20'>
                 <Sidebar/>
             </div>
         </div>

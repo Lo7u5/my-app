@@ -21,10 +21,10 @@ const Users = (props) => {
                             <img className={s.photoUser} src={avatar} alt={users.name} width='100px'/>}
                     </NavLink>
                     <div>
-                        {users.followed ? <button onClick={() => {
+                        {users.followed ? <button className='btn' onClick={() => {
                                 props.unfollow(users.id)
                             }}>Unfollow</button>
-                            : <button onClick={() => {
+                            : <button className='btn' onClick={() => {
                                 props.follow(users.id)
                             }}>Follow</button>}
                     </div>

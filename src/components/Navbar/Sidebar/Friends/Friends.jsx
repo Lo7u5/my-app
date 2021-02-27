@@ -1,6 +1,5 @@
 import React from 'react';
 import Friend from './Friend/Friend';
-import s from './Friends.module.css'
 
 const Friends = (props) => {
 
@@ -17,7 +16,7 @@ const Friends = (props) => {
         key={friend.id}/>)
 
     return (
-        <div className={s.main}>
+        <div className='inline-flex items-baseline space-x-2'>
             {contactSide}
         </div>
     )

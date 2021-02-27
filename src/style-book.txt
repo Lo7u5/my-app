@@ -15,7 +15,7 @@ rgb(161,214,226)
 rgb(25,149,173)
 
 тень
-box-shadow: -4px 4px 5px rgba(0, 0, 0, 0.2);
+box-shadow: -2px 3px 4px rgba(0, 0, 0, 0.2);
 
 цветовые схемы
 https://zen.yandex.ru/media/canva/100-cvetovyh-sochetanii-kotorye-privlekut-nujnuiu-auditoriiu-5d5413854735a600ae103d27
