@@ -15,8 +15,8 @@ code {
 }
 
 .btn {
-    @apply bg-myGray-lightIce opacity-50 rounded-xl border-0 p-1.5 cursor-pointer shadow-myBoxShadow mt-1.5
-    focus:outline-none hover:bg-myGray-lightIce hover:opacity-100 transform transition active:translate-y-0.5
+    @apply bg-myGray-lightIce bg-opacity-50 rounded-xl border-0 p-1.5 cursor-pointer shadow-myBoxShadow mt-1.5
+    focus:outline-none hover:bg-myGray-lightIce hover:bg-opacity-100 transform transition active:translate-y-0.5
 }
 
 .gridContainer {
