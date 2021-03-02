@@ -1,5 +1,4 @@
 import React from "react";
-import s from "./Messages.module.css";
 import MessageItem from "./MessageItems/MessageItem";
 
 
@@ -23,14 +22,14 @@ const Messages = (props) => {
     }
 
     return (
-        <div className={s.messages}>
+        <div className='p-5 col-span-3 sm:col-auto'>
             {messageElements}
             <div>
                 <textarea
                     id='messageTextArea'
                     onChange={onMessageChange}
                     value={props.draftMessage}
-                    placeholder='Send message' cols='50'/>
+                    placeholder='Send message'/>
             </div>
             <div>
                 <button className='btn' onClick={addNewMessage}>Send</button>

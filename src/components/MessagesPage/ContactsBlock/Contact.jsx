@@ -1,5 +1,4 @@
 import React from "react";
-import s from './Contact.module.css';
 import ContactElements from "./ContactElements/ContactElements";
 
 const Contact = (props) => {
@@ -9,7 +8,7 @@ const Contact = (props) => {
                                                                        key={contact.id}/>)
 
     return (
-        <div className={s.contacts}>
+        <div className='justify-self-center p-5'>
             {contactElements}
         </div>
     )

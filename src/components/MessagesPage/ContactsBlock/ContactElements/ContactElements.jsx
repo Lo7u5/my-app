@@ -1,13 +1,12 @@
 import React from "react";
-import s from "../Contact.module.css";
 import {NavLink} from "react-router-dom";
 
 const ContactElements = (props) => {
     let path = "/messages/" + props.id;
     return (
-        <div className={s.contact}>
-            <NavLink to={path} activeClassName={s.active}>
-                <img src={props.profilePicture} alt="ava" width='30px' className={s.ava}/>
+        <div className='p-5'>
+            <NavLink className='text-myGray-darkIce no-underline' to={path} activeClassName='text-bold'>
+                <img src={props.profilePicture} alt="ava" className='ml-2 rounded-lg w-10'/>
                 {props.name}
             </NavLink>
         </div>

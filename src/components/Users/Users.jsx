@@ -13,15 +13,15 @@ const Users = (props) => {
 
     let selected = (p) => {
         if (props.currentPage === p) {
-            return 'px-0.5 text-lg cursor-pointer font-bold';
+            return 'px-1 text-lg cursor-pointer font-bold';
         } else {
-            return 'text-md cursor-pointer';
+            return 'text-md px-0.5 cursor-pointer';
         }
     }
 
     return <div>
         {props.users.map(users =>
-            <div key={users.id} className='grid grid-cols-3 m-7'>
+            <div key={users.id} className='grid grid-cols-app gap-4 m-7'>
                 <div className='mx-auto'>
                     <NavLink to={'/profile/' + users.id}>
                         {users.photos.small ? <img className='rounded-xl shadow-myBoxShadow' src={users.photos.small} alt={users.name} /> :
@@ -36,7 +36,7 @@ const Users = (props) => {
                             }}>Follow</button>}
                     </div>
                 </div>
-                <div className='col-span-2 grid grid-rows-2 rounded-xl border border-myGray-lightIce items-center self-center'>
+                <div className='grid grid-rows-2 rounded-xl border border-myGray-lightIce items-center self-center'>
                     <div className='ml-2'>{users.name}</div>
                     <div className='ml-2'>{users.status}</div>
                 </div>

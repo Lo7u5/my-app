@@ -1,5 +1,4 @@
 import React from 'react';
-import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
@@ -18,13 +17,13 @@ const MyPosts = (props) => {
     }
 
     return (
-        <div className={s.postArea}>
-            <h3>My posts</h3>
+        <div className='p-5'>
+            <h3 className='text-myGray-darkIce'>My posts</h3>
             <div>
                 <textarea id='postTextArea' onChange={onPostChange} value={props.state.draftPost.message}
                           placeholder='New post'/>
                 <div>
-                    <button className='btn' onClick={addNewPost}>
+                    <button className='btn m-2 md:m-5' onClick={addNewPost}>
                         Add post
                     </button>
                 </div>
