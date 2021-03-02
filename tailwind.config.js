@@ -13,6 +13,18 @@ module.exports = {
             },
             boxShadow: {
                 myBoxShadow: '-2px 3px 4px rgba(0, 0, 0, 0.2)'
+            },
+            gridTemplateColumns: {
+                app: '2fr 10fr'
+            },
+            gridTemplateRows: {
+                app: '60px 1fr'
+            },
+            spacing: {
+                app: '1200px'
+            },
+            maxWidth: {
+                app: '995px'
             }
         },
     },

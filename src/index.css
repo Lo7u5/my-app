@@ -16,40 +16,7 @@ code {
 
 .btn {
     @apply bg-myGray-lightIce bg-opacity-50 rounded-xl border-0 p-1.5 cursor-pointer shadow-myBoxShadow mt-1.5
-    focus:outline-none hover:bg-myGray-lightIce hover:bg-opacity-100 transform transition active:translate-y-0.5
-}
-
-.gridContainer {
-    display: grid;
-    grid-template-areas:
-            "h h"
-            "n c";
-    grid-template-rows: 60px 1fr;
-    grid-template-columns: 2fr 10fr;
-    grid-gap: 10px;
-    margin: 0 auto;
-    width: 1200px;
-    height: 100vh;
-}
-
-.gridHeader {
-    grid-area: h;
-    background-color: rgba(188, 186, 190, 0.25);
-    border-radius: 10px;
-}
-
-.gridNav {
-    grid-area: n;
-    background-color: rgba(188, 186, 190, 0.25);
-    text-align: center;
-    border-radius: 10px;
-}
-
-.gridContent {
-    grid-area: c;
-    background-color: rgba(188, 186, 190, 0.25);
-    border-radius: 10px;
-    max-width: 995px;
+    focus:outline-none hover:bg-opacity-100 transform transition active:translate-y-0.5
 }
 
 textarea {

@@ -11,10 +11,10 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 
 const App = () => {
     return (
-        <div className='gridContainer'>
+        <div className='grid grid-cols-app grid-rows-app mx-auto h-screen gap-4 w-app'>
             <Header/>
             <Navbar/>
-            <div className='gridContent'>
+            <div className='bg-myGray-warmGray bg-opacity-25 rounded-xl max-w-app'>
                 <Route path='/messages' render={() => <MessagesPage/>}/>
                 <Route path='/profile' render={() => <ProfileContainer/>}/>
                 <Route path='/news' render={() => <News/>}/>

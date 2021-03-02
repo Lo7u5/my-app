@@ -4,7 +4,7 @@ import Sidebar from './Sidebar/Sidebar'
 
 const Navbar = (props) => {
     return (
-        <div className='gridNav'>
+        <div className='bg-myGray-warmGray bg-opacity-25 rounded-xl text-center'>
             <nav>
                 <div className='pt-1.5 mt-3'><NavLink className='text-myGray-darkIce' to='/profile' activeClassName='font-bold'>Profile</NavLink></div>
                 <div className='pt-1.5'><NavLink className='text-myGray-darkIce' to='/messages' activeClassName='font-bold'>Messages</NavLink></div>
