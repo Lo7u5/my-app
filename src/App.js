@@ -11,7 +11,7 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 
 const App = () => {
     return (
-        <div className='p-2 mx-auto h-screen grid gap-4 lg:grid-cols-app lg:grid-rows-app lg:w-app'>
+        <div className='p-2 mx-auto h-screen grid gap-4 lg:grid-cols-app grid-rows-app lg:w-app'>
             <Header/>
             <Navbar/>
             <div className='bg-myGray-warmGray bg-opacity-25 rounded-xl lg:max-w-app'>
