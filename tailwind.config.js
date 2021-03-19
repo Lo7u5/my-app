@@ -15,7 +15,8 @@ module.exports = {
                 myBoxShadow: '-2px 3px 4px rgba(0, 0, 0, 0.2)'
             },
             gridTemplateColumns: {
-                app: '2fr 10fr'
+                app: '2fr 10fr',
+                prGr: '2fr 7fr'
             },
             gridTemplateRows: {
                 app: '60px 1fr'

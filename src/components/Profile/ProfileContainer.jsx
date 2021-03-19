@@ -1,8 +1,9 @@
 import React from 'react';
 import Profile from "./Profile";
-import axios from "axios";
+import * as axios from "axios";
 import { connect } from "react-redux";
-import { setUserProfileAC } from "../../redux/profile-reducer";
+import { setUserProfileAC, draftPostActionCreator, addPostActionCreator } from "../../redux/profile-reducer";
+import Preloader from '../common/Preloader/Preloader';
 
 class ProfileContainer extends React.Component {
 
@@ -14,14 +15,19 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
-        return (
-            <div>
-                <Profile {...this.props} />
-            </div>
-        );
+        if(this.props.profile.userProfile){
+            return (
+                <div>
+                    <Profile {...this.props} />
+                </div>
+            );
+
+        } else {
+            return <Preloader />
+        }
     }
 }
 
-const mapStateToProps = (state) => ({ profile: state.profilePage.userProfile })
+const mapStateToProps = (state) => ({ profile: state.profilePage})
 
-export default connect(mapStateToProps, { setUserProfileAC })(ProfileContainer);
+export default connect(mapStateToProps, { setUserProfileAC, draftPostActionCreator, addPostActionCreator })(ProfileContainer);

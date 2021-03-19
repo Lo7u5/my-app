@@ -1,12 +1,16 @@
 import React from 'react';
+import profileAva from '../../../../assets/avatar-placeholder.png';
 
 const Post = (props) => {
+
     return (
-        <div className='text-myGray-darkIce p-2 grid grid-cols-2 sm:grid-cols-app'>
-            <img className='rounded-full place-self-center shadow-myBoxShadow w-20 h-20 object-cover'
-                src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.popjustice.com%2Fwp-content%2Fuploads%2F2020%2F09%2FAva-Max-2020-press.jpg&f=1&nofb=1'
-                alt='ava' />
-            <div className='rounded-lg pl-2 border border-myGray-darkIce'>
+        <div className='text-myGray-darkIce p-2 grid grid-cols-3 sm:grid-cols-app'>
+            {props.profile.photos.large ? 
+                <img className='rounded-full place-self-center shadow-myBoxShadow w-20 h-20 object-cover' src={props.profile.photos.large} alt='ava'/> : 
+                <img className='rounded-full place-self-center shadow-myBoxShadow w-20 h-20 object-cover'
+                     src={profileAva}
+                     alt='ava'/>}
+            <div className='rounded-lg pl-2 border col-span-2 border-myGray-darkIce'>
                 {props.message}
                 <br />
                 {props.likeCount}
