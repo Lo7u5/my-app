@@ -35,10 +35,10 @@ const Header = (props) => {
           <li className='pt-1.5'><NavLink className='text-myGray-darkIce' to='/settings' activeClassName='font-bold'>Settings</NavLink></li>
           <li className='pt-1.5'><NavLink className='text-myGray-darkIce' to='/users' activeClassName='font-bold'>Find Users</NavLink></li>
         </ul>
-        { props.isAuth ? props.login : <NavLink to={'/login'}>Login</NavLink>}
+        { props.auth.isAuth ? props.login : <NavLink to={'/login'}>Login</NavLink>}
       </div>
       <div className='justify-self-end self-center hidden sm:block mr-2'>
-        { props.isAuth ? props.login : <NavLink to={'/login'}>Login</NavLink>}
+        { props.auth.isAuth ? props.login : <NavLink to={'/login'}>Login</NavLink>}
       </div>
     </header>
   );
