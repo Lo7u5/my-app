@@ -12,12 +12,13 @@ import {
 import * as axios from "axios";
 import Preloader from "../common/Preloader/Preloader";
 
-class UsersClassContainer extends React.Component {
+class UsersContainer extends React.Component {
   componentDidMount() {
     this.props.toggleIsFetchingAC(true);
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
+        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
+        { withCredentials: true }
       )
       .then((response) => {
         this.props.toggleIsFetchingAC(false);
@@ -31,11 +32,46 @@ class UsersClassContainer extends React.Component {
     this.props.setPageAC(pageNumber);
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
+        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`,
+        { withCredentials: true }
       )
       .then((response) => {
         this.props.toggleIsFetchingAC(false);
         this.props.setUsersAC(response.data.items);
+      });
+  };
+
+  follow = (userId) => {
+    axios
+      .post(
+        `https://social-network.samuraijs.com/api/1.0/follow/${userId}`,
+        {},
+        {
+          withCredentials: true,
+          headers: {
+            "API-KEY": "1569f6d3-2d9d-4b82-ba22-7f7357ce32b1",
+          },
+        }
+      )
+      .then((responce) => {
+        if (responce.data.resultCode === 0) {
+          this.props.followAC(userId);
+        }
+      });
+  };
+
+  unfollow = (userId) => {
+    axios
+      .delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {
+        withCredentials: true,
+        headers: {
+          "API-KEY": "1569f6d3-2d9d-4b82-ba22-7f7357ce32b1",
+        },
+      })
+      .then((responce) => {
+        if (responce.data.resultCode === 0) {
+          this.props.unfollowAC(userId);
+        }
       });
   };
 
@@ -48,8 +84,8 @@ class UsersClassContainer extends React.Component {
           totalUsersCount={this.props.totalUsersCount}
           pageSize={this.props.pageSize}
           users={this.props.users}
-          follow={this.props.followAC}
-          unfollow={this.props.unfollowAC}
+          follow={this.follow}
+          unfollow={this.unfollow}
           currentPage={this.props.currentPage}
           onPageChanged={this.onPageChanged}
         />
@@ -75,4 +111,4 @@ export default connect(mapStateToProps, {
   setPageAC,
   setTotalUsersAC,
   toggleIsFetchingAC,
-})(UsersClassContainer);
+})(UsersContainer);

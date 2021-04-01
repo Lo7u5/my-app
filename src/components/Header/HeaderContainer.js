@@ -7,7 +7,7 @@ import * as axios from "axios";
 class HeaderContainer extends React.Component {
   componentDidMount() {
     axios
-      .get("https://social-network.samuraijs.com/api/1.0/auth/me", {
+      .get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -19,7 +19,7 @@ class HeaderContainer extends React.Component {
     if (this.props.auth.id) {
       axios
         .get(
-          "https://social-network.samuraijs.com/api/1.0/profile/" +
+          `https://social-network.samuraijs.com/api/1.0/profile/` +
             this.props.auth.id
         )
         .then((response) => {
